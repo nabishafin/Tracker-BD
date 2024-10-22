@@ -1,6 +1,9 @@
+import { useState } from "react";
+import { getdate } from "./utilites";
 
 
-const SubmissionFrom = ({ handleActiveButton, activeButton }) => {
+
+const SubmissionFrom = ({ handleActiveButton, activeButton, handleFromSubmit }) => {
 
 
     const incomeCategories = ["Salary", "Outsourcing", "Bond", "Dividend"];
@@ -15,13 +18,24 @@ const SubmissionFrom = ({ handleActiveButton, activeButton }) => {
         "Telephone",
     ];
 
+    const [category, setCategory] = useState('')
+    const [amount, setAmount] = useState(0)
+    const [date, setDate] = useState(getdate)
+
     const categories = activeButton === 'income' ? incomeCategories : expenseCategories;
+    const handlesubmit = (e) => {
+        e.preventDefault();
+        const UpdateCategory = category.length === 0 ? categories[0] : category;
+        handleFromSubmit({ UpdateCategory, date, amount })
+    }
+
+
     return (
         <div>
             <div className="p-6 py-8 bg-[#F9FAFB] border rounded-md">
                 <h2 className="text-3xl font-semibold leading-7 text-gray-800 text-center">Expense Tracker</h2>
 
-                <form>
+                <form onSubmit={(e) => { handlesubmit(e) }}>
                     <div
                         className="flex divide-x divide-slate-400/20 overflow-hidden rounded-md bg-white text-[0.8125rem] font-medium leading-5 text-slate-700 shadow-sm ring-1 ring-slate-700/10 mt-6">
                         <div onClick={() => handleActiveButton('expense')}
@@ -39,12 +53,16 @@ const SubmissionFrom = ({ handleActiveButton, activeButton }) => {
                     <div className="mt-3">
                         <label htmlFor="category" className="block text-sm font-medium leading-6 text-gray-900">Category</label>
                         <div className="mt-2">
-                            <select id="category" name="category" autocomplete="category-name"
+                            <select id="category"
+                                value={category}
+                                onChange={(e) => { setCategory(e.target.value) }}
+                                name="category"
+                                autocomplete="category-name"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6">
 
                                 {
                                     categories.map(category =>
-                                        <option>{category}</option>)
+                                        <option value={category} key={category}>{category}</option>)
                                 }
                             </select>
                         </div>
@@ -53,7 +71,13 @@ const SubmissionFrom = ({ handleActiveButton, activeButton }) => {
                     <div className="mt-3">
                         <label htmlFor="amount" className="block text-sm font-medium leading-6 text-gray-900">Amount</label>
                         <div className="mt-2">
-                            <input type="number" name="amount" id="amount" placeholder="12931"
+                            <input value={amount}
+                                onChange={(e) => { setAmount(e.target.value) }}
+                                type="number"
+                                name="amount"
+                                id="amount"
+                                placeholder="12931"
+
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6" />
                         </div>
                     </div>
@@ -61,7 +85,13 @@ const SubmissionFrom = ({ handleActiveButton, activeButton }) => {
                     <div className="mt-3">
                         <label htmlFor="date" className="block text-sm font-medium leading-6 text-gray-900">Date</label>
                         <div className="mt-2">
-                            <input type="date" name="date" id="date" placeholder="12931"
+                            <input
+                                onChange={(e) => { setDate(e.target.value) }}
+                                value={date}
+                                type="date"
+                                name="date"
+                                id="date"
+                                placeholder="12931"
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6" />
                         </div>
                     </div>

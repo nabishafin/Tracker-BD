@@ -6,16 +6,35 @@ import Navbar from './components/Navbar'
 import SubmissionFrom from './components/SubmissionFrom'
 import TotalBalence from './components/TotalBalence'
 
+
+
 function App() {
 
 
 
   const [activeButton, setActiveButton] = useState('income')
-  console.log(activeButton)
+  const [expense, setExpense] = useState([])
+  const [income, setIncome] = useState([])
+
+
+  console.log(expense)
+  console.log(income)
+
 
   const handleActiveButton = (status) => {
     setActiveButton(status)
 
+  }
+
+
+
+  const handleFromSubmit = ({ UpdateCategory, date, amount }) => {
+    const newobj = {
+      category: UpdateCategory,
+      date: date,
+      amount: amount
+    }
+    activeButton === 'income' ? setIncome((prevArray) => [...prevArray, newobj]) : setExpense((e) => [...e, newobj])
   }
 
   return (
@@ -26,13 +45,14 @@ function App() {
           <SubmissionFrom
             handleActiveButton={handleActiveButton}
             activeButton={activeButton}
+            handleFromSubmit={handleFromSubmit}
           ></SubmissionFrom>
           <div className="lg:col-span-2">
             <TotalBalence></TotalBalence>
             {/* Expense and inCome colum */}
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
-              {/* <Income></Income> */}
-              {/* <Expense></Expense> */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
+              <Income incomes={income}></Income>
+              {/* <Expense expense={expense}></Expense> */}
             </div>
           </div>
         </section>
