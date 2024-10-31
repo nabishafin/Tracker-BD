@@ -9,24 +9,14 @@ import TotalBalence from './components/TotalBalence'
 
 
 function App() {
-
-
-
   const [activeButton, setActiveButton] = useState('income')
   const [expense, setExpense] = useState([])
   const [income, setIncome] = useState([])
-
-
-  console.log(expense)
-  console.log(income)
-
 
   const handleActiveButton = (status) => {
     setActiveButton(status)
 
   }
-
-
 
   const handleFromSubmit = ({ UpdateCategory, date, amount }) => {
     const newobj = {
@@ -34,8 +24,11 @@ function App() {
       date: date,
       amount: amount
     }
-    activeButton === 'income' ? setIncome((prevArray) => [...prevArray, newobj]) : setExpense((e) => [...e, newobj])
+    activeButton === 'income' ? setIncome((e) => [...e, newobj]) : setExpense((e) => [...e, newobj])
   }
+
+  const totalIncome = income.reduce((a, b) => a + parseInt(b.amount), 0);
+  const totalExpense = expense.reduce((a, b) => a + parseInt(b.amount), 0);
 
   return (
     <>
@@ -47,12 +40,17 @@ function App() {
             activeButton={activeButton}
             handleFromSubmit={handleFromSubmit}
           ></SubmissionFrom>
+
           <div className="lg:col-span-2">
-            <TotalBalence></TotalBalence>
+            <TotalBalence
+              totalExpense={totalExpense}
+              totalIncome={totalIncome}
+            ></TotalBalence>
+
             {/* Expense and inCome colum */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-8">
               <Income incomes={income}></Income>
-              {/* <Expense expense={expense}></Expense> */}
+              <Expense expenses={expense}></Expense>
             </div>
           </div>
         </section>

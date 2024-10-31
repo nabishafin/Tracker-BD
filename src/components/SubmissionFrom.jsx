@@ -22,12 +22,21 @@ const SubmissionFrom = ({ handleActiveButton, activeButton, handleFromSubmit }) 
     const [amount, setAmount] = useState(0)
     const [date, setDate] = useState(getdate)
 
+
+
     const categories = activeButton === 'income' ? incomeCategories : expenseCategories;
     const handlesubmit = (e) => {
         e.preventDefault();
         const UpdateCategory = category.length === 0 ? categories[0] : category;
-        handleFromSubmit({ UpdateCategory, date, amount })
+        const isValid = UpdateCategory.length > 0 && date.length > 0 && parseFloat(amount) > 0
+        if (isValid) {
+            handleFromSubmit({ UpdateCategory, date, amount })
+        }
+        else {
+            alert('invalid inputs')
+        }
     }
+
 
 
     return (
@@ -72,11 +81,13 @@ const SubmissionFrom = ({ handleActiveButton, activeButton, handleFromSubmit }) 
                         <label htmlFor="amount" className="block text-sm font-medium leading-6 text-gray-900">Amount</label>
                         <div className="mt-2">
                             <input value={amount}
-                                onChange={(e) => { setAmount(e.target.value) }}
+                                onChange={(e) => {
+                                    setAmount(e.target.value)
+                                }}
                                 type="number"
                                 name="amount"
                                 id="amount"
-                                placeholder="12931"
+                                placeholder="0"
 
                                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6" />
                         </div>

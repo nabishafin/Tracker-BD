@@ -5,16 +5,16 @@ const Income = ({ incomes }) => {
 
     return (
         <div>
-            <div class="border rounded-md relative">
+            <div className="border rounded-md relative">
                 {/* <!-- Header --> */}
-                <div class="flex items-center justify-between gap-2 bg-[#F9FAFB] py-4 px-4 rounded-md">
-                    <div class="flex items-center gap-2">
+                <div className="flex items-center justify-between gap-2 bg-[#F9FAFB] py-4 px-4 rounded-md">
+                    <div className="flex items-center gap-2">
                         {/* <!-- Icon --> */}
                         <div
-                            class="h-10 w-10 bg-teal-600 text-white rounded-md text-center object-center place-content-center text-base">
+                            className="h-10 w-10 bg-teal-600 text-white rounded-md text-center object-center place-content-center text-base">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="mx-auto">
+                                stroke-linejoin="round" className="mx-auto">
                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                 <path
                                     d="M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12" />
@@ -23,20 +23,20 @@ const Income = ({ incomes }) => {
                         </div>
                         {/* <!-- Text --> */}
                         <div>
-                            <h3 class="text-xl font-semibold leading-7 text-gray-800">Income</h3>
+                            <h3 className="text-xl font-semibold leading-7 text-gray-800">Income</h3>
                         </div>
                     </div>
                     <div>
                         {/* <!-- Sorting --> */}
-                        {/* <div class="relative inline-block text-left">
+                        {/* <div className="relative inline-block text-left">
                             <div>
                                 <button type="button"
-                                    class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                    className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                                     id="menu-button" aria-expanded="true" aria-haspopup="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-sort-descending">
+                                        className="icon icon-tabler icons-tabler-outline icon-tabler-sort-descending">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M4 6l9 0" />
                                         <path d="M4 12l7 0" />
@@ -47,30 +47,30 @@ const Income = ({ incomes }) => {
                                 </button>
                             </div>
 
-                            <div class="absolute z-10 mt-2 left-5 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            <div className="absolute z-10 mt-2 left-5 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="menu-button"
                                 tabindex="-1">
-                                <div class="py-1" role="none">
+                                <div className="py-1" role="none">
                                     <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
                                         role="menuitem" tabindex="-1" id="menu-item-0">Low to High</a>
                                     <a href="#"
-                                        class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
+                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-all"
                                         role="menuitem" tabindex="-1" id="menu-item-0">High to Low</a>
                                 </div>
                             </div>
                         </div> */}
 
                         {/* <!-- Filtering --> */}
-                        {/* <div class="relative inline-block text-left">
+                        {/* <div className="relative inline-block text-left">
                             <div>
                                 <button type="button"
-                                    class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                                    className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-2 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
                                     id="filter-button" aria-expanded="true" aria-haspopup="true">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18"
                                         viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round"
-                                        class="icon icon-tabler icons-tabler-outline icon-tabler-adjustments-alt">
+                                        className="icon icon-tabler icons-tabler-outline icon-tabler-adjustments-alt">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M4 8h4v4h-4z" />
                                         <path d="M6 4l0 4" />
@@ -85,34 +85,34 @@ const Income = ({ incomes }) => {
                                 </button>
                             </div>
 
-                            <div class="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                            <div className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                                 role="menu" aria-orientation="vertical" aria-labelledby="filter-button"
                                 tabindex="-1" id="filter-dropdown">
-                                <div class="py-1" role="none">
-                                    <label class="inline-flex items-center px-4 py-2 text-sm text-gray-700">
+                                <div className="py-1" role="none">
+                                    <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
                                         <input type="checkbox"
-                                            class="form-checkbox h-4 w-4 rounded-md text-gray-600"
+                                            className="form-checkbox h-4 w-4 rounded-md text-gray-600"
                                             id="filter-option-1" />
-                                        <span class="ml-2">Salary</span>
+                                        <span className="ml-2">Salary</span>
                                     </label>
-                                    <label class="inline-flex items-center px-4 py-2 text-sm text-gray-700">
+                                    <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
                                         <input type="checkbox"
-                                            class="form-checkbox h-4 w-4 rounded-md text-gray-600"
+                                            className="form-checkbox h-4 w-4 rounded-md text-gray-600"
                                             id="filter-option-2" />
-                                        <span class="ml-2">Outsourcing</span>
+                                        <span className="ml-2">Outsourcing</span>
                                     </label>
-                                    <label class="inline-flex items-center px-4 py-2 text-sm text-gray-700">
+                                    <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
                                         <input type="checkbox"
-                                            class="form-checkbox h-4 w-4 rounded-md text-gray-600"
+                                            className="form-checkbox h-4 w-4 rounded-md text-gray-600"
                                             id="filter-option-3" />
-                                        <span class="ml-2">Bond</span>
+                                        <span className="ml-2">Bond</span>
                                     </label>
 
-                                    <label class="inline-flex items-center px-4 py-2 text-sm text-gray-700">
+                                    <label className="inline-flex items-center px-4 py-2 text-sm text-gray-700">
                                         <input type="checkbox"
-                                            class="form-checkbox h-4 w-4 rounded-md text-gray-600"
+                                            className="form-checkbox h-4 w-4 rounded-md text-gray-600"
                                             id="filter-option-3" />
-                                        <span class="ml-2">Dividend</span>
+                                        <span className="ml-2">Dividend</span>
                                     </label>
                                 </div>
                             </div>
@@ -120,7 +120,7 @@ const Income = ({ incomes }) => {
                     </div>
                 </div>
 
-                <div class="p-4 divide-y">
+                <div className="p-4 divide-y">
 
                     {/* <!-- Row --> */}
                     {
